@@ -1,0 +1,49 @@
+###Creating new database:
+
+CREATE DATABASE assignment_2
+    WITH 
+    OWNER = postgres
+    ENCODING = 'UTF8'
+    CONNECTION LIMIT = -1;
+ 
+###Creating table for survey:
+
+    CREATE TABLE public.movie_survey
+(
+    "Avengers: Infinity War" text,
+    "Avengers: Endgame" text,
+    "Black Panther" text,
+    "Thor: Ragnarok" text,
+    "Spider-Man: No Way Home" text,
+    "Captain Marvel" text
+);
+
+ALTER TABLE public.movie_survey
+    OWNER to postgres;
+
+###Storing results:
+
+INSERT INTO movie_survey
+("Avengers: Infinity War", "Avengers: Endgame", "Black Panther", "Thor: Ragnarok", "Spider-Man: No Way Home", "Captain Marvel") 
+VALUES 
+(4,5,4,3,5,3),
+(5,5,5,4,5,4),
+(3,5,5,3,'N/A','N/A'),
+(4,5,5,4,4,3),
+(4,4,5,3,'N/A',3),
+(5,5,3,5,4,3),
+(4,5,5,'N/A',5,4),
+(4,4,3,3,4,'N/A')
+
+###Loading the information from the SQL database into an R dataframe:
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+
+setwd("C:/Users/RajitDesktop/Downloads/Lab/Assignment 2")
+
+require(data.table)
+survey_table = fread("movie_survey.csv")
+
+View(survey_table)
+```
