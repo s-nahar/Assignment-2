@@ -35,6 +35,8 @@ VALUES
 (4,5,5,'N/A',5,4),
 (4,4,3,3,4,'N/A')
 
+###Exported table with headers to movie_survey.csv
+
 ###Loading the information from the SQL database into an R dataframe:
 
 ```{r setup, include=FALSE}
